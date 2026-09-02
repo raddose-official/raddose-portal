@@ -15,7 +15,7 @@
   <!-- Canvas Confetti -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   
-  <link rel="stylesheet" href="style.css?v=20260902_v4">
+  <link rel="stylesheet" href="style.css?v=20260902_v5">
 </head>
 <body>
 
@@ -846,30 +846,52 @@
 
       <!-- TAB 3: CLOUDFLARE R2 BACKUP VAULT -->
       <div id="tabContent_vault" class="mypage-tab-content" style="display:none;">
-        <div style="background:rgba(56,189,248,0.08);border:1px solid rgba(56,189,248,0.25);border-radius:10px;padding:14px;margin-bottom:14px;">
-          <div style="font-size:13px;font-weight:700;color:#38bdf8;display:flex;align-items:center;gap:6px;">
-            <i class="fa-solid fa-cloud-arrow-up"></i> Cloudflare R2 원외 재해복구(DR) 클라우드 금고
+        
+        <!-- PRO ACTIVE STATE: Visible only for PRO tier -->
+        <div id="vaultActiveState">
+          <div style="background:rgba(56,189,248,0.08);border:1px solid rgba(56,189,248,0.25);border-radius:10px;padding:14px;margin-bottom:14px;">
+            <div style="font-size:13px;font-weight:700;color:#38bdf8;display:flex;align-items:center;gap:6px;">
+              <i class="fa-solid fa-cloud-arrow-up"></i> Cloudflare R2 원외 재해복구(DR) 클라우드 금고 <span class="badge-pro" style="font-size:10px;padding:2px 6px;">PRO 전용</span>
+            </div>
+            <div style="font-size:12px;color:#94a3b8;margin-top:4px;line-height:1.4;">
+              병원 마스터 비밀번호로 종단간 암호화(E2EE, PBKDF2 + AES-256-GCM)되어 안전하게 분산 보관됩니다. 본사 엔지니어도 비밀번호 없이는 열 수 없습니다.
+            </div>
           </div>
-          <div style="font-size:12px;color:#94a3b8;margin-top:4px;line-height:1.4;">
-            병원 마스터 비밀번호로 종단간 암호화(E2EE, PBKDF2 + AES-256-GCM)되어 안전하게 분산 보관됩니다. 본사 엔지니어도 비밀번호 없이는 열 수 없습니다.
+
+          <div style="border:1px solid rgba(255,255,255,0.1);border-radius:8px;overflow:hidden;">
+            <div style="background:rgba(255,255,255,0.03);padding:10px 14px;font-size:12px;font-weight:700;color:#94a3b8;border-bottom:1px solid rgba(255,255,255,0.06);display:flex;justify-content:space-between;">
+              <span>보관된 암호화 백업본 파일명</span>
+              <span>크기 / 상태</span>
+            </div>
+            <div style="padding:12px 14px;border-bottom:1px solid rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:space-between;">
+              <div>
+                <div style="font-size:13px;font-weight:700;color:#f8fafc;font-family:monospace;">2026_09_02_ILSAN_HOSPITAL_VAULT.vault</div>
+                <div style="font-size:11px;color:#10b981;"><i class="fa-solid fa-lock"></i> AES-256 암호화 완료 (2026-09-02 자동 보관)</div>
+              </div>
+              <button type="button" class="btn btn-sm btn-outline" onclick="downloadVaultBackupDemo()">
+                <i class="fa-solid fa-download"></i> 복원 파일 다운로드
+              </button>
+            </div>
           </div>
         </div>
 
-        <div style="border:1px solid rgba(255,255,255,0.1);border-radius:8px;overflow:hidden;">
-          <div style="background:rgba(255,255,255,0.03);padding:10px 14px;font-size:12px;font-weight:700;color:#94a3b8;border-bottom:1px solid rgba(255,255,255,0.06);display:flex;justify-content:space-between;">
-            <span>보관된 암호화 백업본 파일명</span>
-            <span>크기 / 상태</span>
+        <!-- LOCKED UPSELL STATE: Visible for FREE or PLUS tier -->
+        <div id="vaultLockedState" style="display:none;text-align:center;padding:36px 20px;background:rgba(255,255,255,0.02);border:1px dashed rgba(255,255,255,0.15);border-radius:12px;">
+          <div style="width:54px;height:54px;margin:0 auto 14px auto;background:rgba(244,63,94,0.12);border:1px solid rgba(244,63,94,0.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;color:#f43f5e;">
+            <i class="fa-solid fa-lock"></i>
           </div>
-          <div style="padding:12px 14px;border-bottom:1px solid rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:space-between;">
-            <div>
-              <div style="font-size:13px;font-weight:700;color:#f8fafc;font-family:monospace;">2026_09_02_ILSAN_HOSPITAL_VAULT.vault</div>
-              <div style="font-size:11px;color:#10b981;"><i class="fa-solid fa-lock"></i> AES-256 암호화 완료 (2026-09-02 자동 보관)</div>
-            </div>
-            <button type="button" class="btn btn-sm btn-outline" onclick="downloadVaultBackupDemo()">
-              <i class="fa-solid fa-download"></i> 복원 파일 다운로드
-            </button>
-          </div>
+          <h4 style="color:#f8fafc;font-size:16px;font-weight:700;margin:0 0 8px 0;">
+            원외 클라우드 재해복구(DR) 금고는 <span style="color:#38bdf8;">Pro 플랜 전용</span> 기능입니다
+          </h4>
+          <p style="color:#94a3b8;font-size:13px;max-width:440px;margin:0 auto 18px auto;line-height:1.5;">
+            현재 플랜은 2단계 '원내 NAS 미러링'까지 지원됩니다.<br>
+            병원 화재, 침수, 랜섬웨어 감염 시에도 10초 만에 완벽 복구되는 Cloudflare R2 원외 종단간 암호화 금고를 이용하시려면 Pro 플랜으로 업그레이드해 주세요.
+          </p>
+          <button type="button" class="btn btn-primary btn-glow" onclick="switchMyPageTab('billing')" style="padding:10px 22px;font-weight:700;font-size:13px;">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i> Pro 플랜으로 업그레이드 신청하기
+          </button>
         </div>
+
       </div>
 
     </div>
@@ -878,6 +900,6 @@
   <!-- Toast Notification Container -->
   <div id="toastContainer" class="toast-container"></div>
 
-  <script src="auth_portal.js?v=20260902_v4"></script>
+  <script src="auth_portal.js?v=20260902_v5"></script>
 </body>
 </html>
