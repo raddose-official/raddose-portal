@@ -48,7 +48,7 @@
       <div class="nav-actions">
         <button class="btn btn-secondary" onclick="openLoginModal()">로그인</button>
         <button class="btn btn-primary btn-glow" onclick="openGoogleAuthModal()">
-          <i class="fa-brands fa-google"></i> 30일 무료 체험
+          <i class="fa-solid fa-key"></i> 30일 무료 체험
         </button>
       </div>
 
@@ -90,7 +90,7 @@
                 <path fill="#34A853" d="M12 23c3.2 0 6-1.1 8-3l-3.7-2.9c-1.1.7-2.5 1.2-4.3 1.2-3.1 0-5.8-2.1-6.7-5L1.6 16.2C3.5 20.4 7.4 23 12 23z"/>
               </svg>
             </div>
-            <span>Google 계정으로 1초 시작하기</span>
+            <span>30일 무료 Pro 라이선스 즉시 발급</span>
             <div class="btn-shine"></div>
           </button>
           
@@ -620,29 +620,13 @@
     <div class="modal-card">
       <button class="modal-close" onclick="closeModal('authModal')"><i class="fa-solid fa-xmark"></i></button>
 
-      <!-- STEP 1: Google One-Click Auth Screen -->
+      <!-- STEP 1: Fast B2B License Registration Form -->
       <div id="modalStep1" class="modal-step active">
         <div class="modal-header text-center">
           <div class="modal-badge-pro"><i class="fa-solid fa-crown"></i> 30일 무료 Pro 체험 플랜</div>
-          <h3 class="modal-title">RadDose Pro 1초 시작하기</h3>
-          <p class="modal-subtitle">구글 계정 연동으로 30일 무료 Pro 라이선스가 즉시 발급됩니다.</p>
+          <h3 class="modal-title">RadDose Pro 정품 라이선스 신청</h3>
+          <p class="modal-subtitle">병원 정보를 입력하시면 클라우드 DB에 전용 Pro 라이선스가 즉시 발급됩니다.</p>
         </div>
-
-        <div class="google-auth-box">
-          <button class="btn btn-google-direct" onclick="handleGoogleSignIn()">
-            <div class="google-icon-wrapper">
-              <svg viewBox="0 0 24 24" width="22" height="22">
-                <path fill="#EA4335" d="M12 5c1.6 0 3 .6 4.1 1.6l3.1-3.1C17.3 1.8 14.8 1 12 1 7.4 1 3.5 3.6 1.6 7.3l3.7 2.9C6.2 7.3 8.9 5 12 5z"/>
-                <path fill="#4285F4" d="M23.5 12.3c0-.8-.1-1.6-.2-2.3H12v4.5h6.5c-.3 1.5-1.1 2.8-2.4 3.7l3.7 2.9c2.2-2 3.7-5 3.7-8.8z"/>
-                <path fill="#FBBC05" d="M5.3 14.8c-.2-.7-.4-1.5-.4-2.3s.2-1.6.4-2.3L1.6 7.3C.6 9.3 0 11.6 0 14s.6 4.7 1.6 6.7l3.7-2.9z"/>
-                <path fill="#34A853" d="M12 23c3.2 0 6-1.1 8-3l-3.7-2.9c-1.1.7-2.5 1.2-4.3 1.2-3.1 0-5.8-2.1-6.7-5L1.6 16.2C3.5 20.4 7.4 23 12 23z"/>
-              </svg>
-            </div>
-            <span>Google 계정으로 계속하기</span>
-          </button>
-        </div>
-
-        <div class="modal-divider"><span>또는 병원 이메일로 직접 등록</span></div>
 
         <form id="directRegForm" onsubmit="handleDirectSubmit(event)">
           <div class="form-group">
@@ -750,6 +734,142 @@
           </ol>
         </div>
       </div>
+    </div>
+  </div>
+
+  
+  <!-- ==========================================================================
+       MY PAGE & SUBSCRIPTION BILLING MODAL (Supabase Cloud Connected)
+       ========================================================================== -->
+  <div id="myPageModal" class="modal-overlay">
+    <div class="modal-card" style="max-width:680px;">
+      <button class="modal-close" onclick="closeMyPageModal()"><i class="fa-solid fa-xmark"></i></button>
+
+      <div class="modal-header text-center" style="margin-bottom:16px;">
+        <div class="modal-badge-pro"><i class="fa-solid fa-hospital-user"></i> RadDose SaaS 회원 포털</div>
+        <h3 class="modal-title" style="font-size:22px;"><span id="myHospName" class="text-cyan">고객병원</span> 마이페이지</h3>
+        <p class="modal-subtitle" style="margin-top:4px;"><span id="myUserName">담당자</span> 님 (<span id="myUserEmail">physicist@hospital.kr</span>)</p>
+      </div>
+
+      <!-- Tab Buttons -->
+      <div style="display:flex;gap:8px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:12px;margin-bottom:16px;">
+        <button id="tabBtn_license" class="mypage-tab-btn active" onclick="switchMyPageTab('license')" style="background:rgba(56,189,248,0.15);color:#38bdf8;border:1px solid rgba(56,189,248,0.3);padding:8px 16px;border-radius:8px;font-weight:700;cursor:pointer;font-size:13px;">
+          🔑 내 라이선스 현황
+        </button>
+        <button id="tabBtn_billing" class="mypage-tab-btn" onclick="switchMyPageTab('billing')" style="background:rgba(255,255,255,0.05);color:#94a3b8;border:1px solid rgba(255,255,255,0.1);padding:8px 16px;border-radius:8px;font-weight:700;cursor:pointer;font-size:13px;">
+          💳 무통장 입금 및 구독
+        </button>
+        <button id="tabBtn_vault" class="mypage-tab-btn" onclick="switchMyPageTab('vault')" style="background:rgba(255,255,255,0.05);color:#94a3b8;border:1px solid rgba(255,255,255,0.1);padding:8px 16px;border-radius:8px;font-weight:700;cursor:pointer;font-size:13px;">
+          🛡️ 클라우드 백업 금고 (R2)
+        </button>
+      </div>
+
+      <!-- TAB 1: LICENSE STATUS -->
+      <div id="tabContent_license" class="mypage-tab-content">
+        <div class="license-box" style="margin-bottom:14px;">
+          <div class="license-header">
+            <div class="license-badge"><i class="fa-solid fa-crown"></i> PRO FULL SUITE (무제한)</div>
+            <div class="license-expiry text-emerald" id="myExpiryText">만료일: 2026-10-02 (D-30)</div>
+          </div>
+          <div class="license-key-wrapper">
+            <div class="license-key-display" id="mySerialKey">RD2026-PRO-XXXX-YYYY</div>
+            <button class="btn btn-copy" onclick="copyLicenseKey()">
+              <i class="fa-solid fa-copy"></i> 키 복사
+            </button>
+          </div>
+          <div class="license-specs-grid" style="margin-top:12px;">
+            <div class="spec-item"><span class="spec-k">20ms 트라젝토리</span><span class="spec-v text-emerald">무제한 수집</span></div>
+            <div class="spec-item"><span class="spec-k">Zero-QA 선량합성</span><span class="spec-v text-emerald">완전 활성화</span></div>
+            <div class="spec-item"><span class="spec-k">KINS 법정 보고서</span><span class="spec-v text-cyan">10초 원클릭</span></div>
+            <div class="spec-item"><span class="spec-k">E2EE 클라우드 금고</span><span class="spec-v text-cyan">3단계 삼중화</span></div>
+          </div>
+        </div>
+        <div style="display:flex;gap:10px;">
+          <button class="btn btn-download-huge" onclick="triggerSetupDownload()" style="flex:1;padding:12px 16px;">
+            <div class="dl-icon"><i class="fa-solid fa-download"></i></div>
+            <div class="dl-text">
+              <span class="dl-main" style="font-size:14px;">설치 프로그램 다운로드</span>
+              <span class="dl-sub">RadDose_Setup_v3.0.exe</span>
+            </div>
+          </button>
+          <button class="btn btn-outline" onclick="downloadLicenseFile()" style="padding:12px 16px;font-size:13px;font-weight:700;">
+            <i class="fa-solid fa-file-shield"></i> 라이선스 파일 (.key)
+          </button>
+        </div>
+      </div>
+
+      <!-- TAB 2: BILLING & BANK TRANSFER -->
+      <div id="tabContent_billing" class="mypage-tab-content" style="display:none;">
+        <div style="background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.25);border-radius:10px;padding:14px;margin-bottom:14px;">
+          <div style="font-size:12px;color:#10b981;font-weight:700;margin-bottom:4px;">🏦 무통장 입금 전용 계좌 안내</div>
+          <div style="display:flex;align-items:center;justify-content:space-between;">
+            <span style="font-size:15px;font-family:monospace;font-weight:700;color:#f8fafc;">신한은행 110-123-456789</span>
+            <button type="button" class="btn btn-sm btn-outline" onclick="copyText('신한은행 110-123-456789')">계좌 복사</button>
+          </div>
+          <div style="font-size:12px;color:#94a3b8;margin-top:4px;">예금주: <strong>주식회사 라드도즈</strong> • 입금 즉시 라이선스 연장 & 세금계산서 발행</div>
+        </div>
+
+        <form id="bankTransferForm" onsubmit="handleBankTransferOrder(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label>구독 플랜 선택</label>
+              <select id="orderPlanTier" class="form-input" style="background:#0f172a;color:#f8fafc;">
+                <option value="PRO" selected>Pro 무제한 플랜 (월 59만원)</option>
+                <option value="PLUS">Plus 기본 플랜 (월 19만원)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>결제 주기 (연간 20% 할인)</label>
+              <select id="orderBillingCycle" class="form-input" style="background:#0f172a;color:#f8fafc;">
+                <option value="MONTHLY">월간 결제</option>
+                <option value="ANNUAL" selected>연간 결제 (20% 특별 할인)</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>입금자명 (병원명 표기 권장)</label>
+              <input type="text" id="orderDepositor" class="form-input" placeholder="예: 김정배(테스트병원)" required>
+            </div>
+            <div class="form-group">
+              <label>전자세금계산서 수신 이메일</label>
+              <input type="email" id="orderTaxEmail" class="form-input" placeholder="tax@hospital.kr" required>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block btn-glow" style="margin-top:8px;">
+            <i class="fa-solid fa-receipt"></i> 무통장 입금 및 전자세금계산서 발행 신청
+          </button>
+        </form>
+      </div>
+
+      <!-- TAB 3: CLOUDFLARE R2 BACKUP VAULT -->
+      <div id="tabContent_vault" class="mypage-tab-content" style="display:none;">
+        <div style="background:rgba(56,189,248,0.08);border:1px solid rgba(56,189,248,0.25);border-radius:10px;padding:14px;margin-bottom:14px;">
+          <div style="font-size:13px;font-weight:700;color:#38bdf8;display:flex;align-items:center;gap:6px;">
+            <i class="fa-solid fa-cloud-arrow-up"></i> Cloudflare R2 원외 재해복구(DR) 클라우드 금고
+          </div>
+          <div style="font-size:12px;color:#94a3b8;margin-top:4px;line-height:1.4;">
+            병원 마스터 비밀번호로 종단간 암호화(E2EE, PBKDF2 + AES-256-GCM)되어 안전하게 분산 보관됩니다. 본사 엔지니어도 비밀번호 없이는 열 수 없습니다.
+          </div>
+        </div>
+
+        <div style="border:1px solid rgba(255,255,255,0.1);border-radius:8px;overflow:hidden;">
+          <div style="background:rgba(255,255,255,0.03);padding:10px 14px;font-size:12px;font-weight:700;color:#94a3b8;border-bottom:1px solid rgba(255,255,255,0.06);display:flex;justify-content:space-between;">
+            <span>보관된 암호화 백업본 파일명</span>
+            <span>크기 / 상태</span>
+          </div>
+          <div style="padding:12px 14px;border-bottom:1px solid rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:space-between;">
+            <div>
+              <div style="font-size:13px;font-weight:700;color:#f8fafc;font-family:monospace;">2026_09_02_ILSAN_HOSPITAL_VAULT.vault</div>
+              <div style="font-size:11px;color:#10b981;"><i class="fa-solid fa-lock"></i> AES-256 암호화 완료 (2026-09-02 자동 보관)</div>
+            </div>
+            <button type="button" class="btn btn-sm btn-outline" onclick="downloadVaultBackupDemo()">
+              <i class="fa-solid fa-download"></i> 복원 파일 다운로드
+            </button>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 
