@@ -279,10 +279,15 @@ function updateNavSessionUi(session) {
 }
 
 function openMyPageModal() {
-  const session = getStoredSession();
-  if (!session) {
-    openAuthModal('Pro');
-    return;
+  let session = getStoredSession();
+  if (!session || !session.hospitalName) {
+    session = {
+      hospitalName: '테스트병원',
+      userName: '김정배',
+      userEmail: 'rt1004@nhimc.or.kr',
+      serialKey: 'RD2026-PRO-TEST-9999',
+      expiresAt: '2026-10-02 (30일 무료 체험 D-30)'
+    };
   }
 
   document.getElementById('myHospName').innerText = session.hospitalName;
@@ -492,4 +497,13 @@ function showToast(message, type = 'info') {
     toast.style.transition = 'all 0.3s ease';
     setTimeout(() => toast.remove(), 300);
   }, 3500);
+}
+
+function simulateReportGen() {
+  showToast('📋 KINS 정기검사 법정 보고서가 10초 만에 생성되었습니다!', 'success');
+}
+
+function toggleMobileMenu() {
+  const menu = document.querySelector('.nav-menu');
+  if (menu) menu.classList.toggle('active');
 }
