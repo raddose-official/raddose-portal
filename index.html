@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RadDose Pro | 가속기 60일 삭제 한계 극복, 10초 완성 KINS 정기검사 법정 보고서 솔루션</title>
+  <meta name="description" content="TrueBeam & Halcyon 20ms 트라젝토리 무인 수집부터 Zero-QA 선량 계산, 3단계 백업 삼중화까지. 방사선종양학과의 KINS 법정 검사를 10초 만에 완벽 자동화하는 RadDose Pro입니다.">
+  
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Canvas Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Background Decorative Gradients -->
+  <div class="bg-glow bg-glow-1"></div>
+  <div class="bg-glow bg-glow-2"></div>
+  <div class="bg-glow bg-glow-3"></div>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="#" class="brand-logo">
+        <div class="logo-icon">
+          <i class="fa-solid fa-atom"></i>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">RadDose <span class="badge-pro">PRO</span></span>
+          <span class="brand-sub">Medical Physics Suite</span>
+        </div>
+      </a>
+
+      <nav class="nav-menu">
+        <a href="#features" class="nav-link">핵심 기능</a>
+        <a href="#architecture" class="nav-link">기술 아키텍처</a>
+        <a href="#calculator" class="nav-link">절감 효과 계산</a>
+        <a href="#pricing" class="nav-link">요금제</a>
+        <a href="#faq" class="nav-link">FAQ</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="btn btn-secondary" onclick="openLoginModal()">로그인</button>
+        <button class="btn btn-primary btn-glow" onclick="openGoogleAuthModal()">
+          <i class="fa-brands fa-google"></i> 30일 무료 체험
+        </button>
+      </div>
+
+      <button class="mobile-toggle" onclick="toggleMobileMenu()">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container hero-container">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          <span class="badge-text">v3.0 상용화 릴리즈 • KINS 법정 검사 전자동화</span>
+          <span class="badge-tag">NEW</span>
+        </div>
+        
+        <h1 class="hero-title">
+          가속기 60일 삭제 한계 극복,<br>
+          <span class="text-gradient">10초 완성 KINS 정기검사</span><br>
+          법정 보고서 SaaS
+        </h1>
+
+        <p class="hero-desc">
+          TrueBeam & Halcyon <strong>20ms 트라젝토리 무인 수집</strong>부터 <strong>Zero-QA 선량 합성</strong>, 
+          <strong>3단계 백업 삼중화</strong>까지. 의학물리학자의 야근을 없애고 
+          원자력안전기술원(KINS) 정기검사를 완벽하게 대비하세요.
+        </p>
+
+        <div class="hero-cta-group">
+          <button class="btn btn-hero-primary" onclick="openGoogleAuthModal()">
+            <div class="google-btn-icon">
+              <svg viewBox="0 0 24 24" width="20" height="20">
+                <path fill="#EA4335" d="M12 5c1.6 0 3 .6 4.1 1.6l3.1-3.1C17.3 1.8 14.8 1 12 1 7.4 1 3.5 3.6 1.6 7.3l3.7 2.9C6.2 7.3 8.9 5 12 5z"/>
+                <path fill="#4285F4" d="M23.5 12.3c0-.8-.1-1.6-.2-2.3H12v4.5h6.5c-.3 1.5-1.1 2.8-2.4 3.7l3.7 2.9c2.2-2 3.7-5 3.7-8.8z"/>
+                <path fill="#FBBC05" d="M5.3 14.8c-.2-.7-.4-1.5-.4-2.3s.2-1.6.4-2.3L1.6 7.3C.6 9.3 0 11.6 0 14s.6 4.7 1.6 6.7l3.7-2.9z"/>
+                <path fill="#34A853" d="M12 23c3.2 0 6-1.1 8-3l-3.7-2.9c-1.1.7-2.5 1.2-4.3 1.2-3.1 0-5.8-2.1-6.7-5L1.6 16.2C3.5 20.4 7.4 23 12 23z"/>
+              </svg>
+            </div>
+            <span>Google 계정으로 1초 시작하기</span>
+            <div class="btn-shine"></div>
+          </button>
+          
+          <a href="#features" class="btn btn-hero-secondary">
+            <i class="fa-solid fa-circle-play"></i> 핵심 기능 둘러보기
+          </a>
+        </div>
+
+        <div class="hero-trust-badges">
+          <div class="trust-item"><i class="fa-solid fa-shield-check"></i> KINS 법정 양식 100% 일치</div>
+          <div class="trust-item"><i class="fa-solid fa-bolt"></i> 30일 무료 Pro 체험 라이선스 즉시 발급</div>
+          <div class="trust-item"><i class="fa-solid fa-lock"></i> 병원 온프레미스 망분리 완벽 지원</div>
+        </div>
+      </div>
+
+      <!-- Hero Dashboard Visual Card -->
+      <div class="hero-visual">
+        <div class="dashboard-mockup">
+          <div class="mockup-header">
+            <div class="traffic-lights">
+              <span class="light red"></span>
+              <span class="light yellow"></span>
+              <span class="light green"></span>
+            </div>
+            <div class="mockup-title">
+              <i class="fa-solid fa-server"></i> RadDose Core Controller v3.0 - [LINAC-01 TrueBeam STx]
+            </div>
+            <div class="status-live">
+              <span class="live-dot"></span> LIVE 20ms CAPTURE
+            </div>
+          </div>
+
+          <div class="mockup-body">
+            <!-- Top Stat Row -->
+            <div class="mock-stats-grid">
+              <div class="mock-stat-card">
+                <div class="stat-label">가속기 연동 상태</div>
+                <div class="stat-val text-success"><i class="fa-solid fa-circle-check"></i> 정상 수집중</div>
+                <div class="stat-sub">TrueBeam v2.7 (192.168.10.42)</div>
+              </div>
+              <div class="mock-stat-card">
+                <div class="stat-label">20ms 트라젝토리 수집량</div>
+                <div class="stat-val text-cyan" id="mockStreamCount">1,842,920 pts</div>
+                <div class="stat-sub">손실률 0.000% (무인 상시 데몬)</div>
+              </div>
+              <div class="mock-stat-card">
+                <div class="stat-label">KINS 정기검사 보고서</div>
+                <div class="stat-val text-purple">100% 준비 완료</div>
+                <div class="stat-sub">10초 원클릭 자동 생성 가능</div>
+              </div>
+            </div>
+
+            <!-- Visual Graph / Trajectory Live Monitor -->
+            <div class="mock-monitor">
+              <div class="monitor-header">
+                <span><i class="fa-solid fa-chart-line"></i> 실시간 갠트리/MLC 오차 추적 (Zero-QA Engine)</span>
+                <span class="monitor-badge">RMS Error: 0.018 mm</span>
+              </div>
+              <div class="waveform-container">
+                <div class="waveform-bar" style="height: 65%;"></div>
+                <div class="waveform-bar" style="height: 80%;"></div>
+                <div class="waveform-bar" style="height: 45%;"></div>
+                <div class="waveform-bar" style="height: 90%;"></div>
+                <div class="waveform-bar" style="height: 75%;"></div>
+                <div class="waveform-bar" style="height: 88%;"></div>
+                <div class="waveform-bar" style="height: 60%;"></div>
+                <div class="waveform-bar" style="height: 95%;"></div>
+                <div class="waveform-bar" style="height: 70%;"></div>
+                <div class="waveform-bar" style="height: 85%;"></div>
+                <div class="waveform-bar" style="height: 92%;"></div>
+                <div class="waveform-bar" style="height: 78%;"></div>
+                <div class="waveform-bar" style="height: 84%;"></div>
+              </div>
+              <div class="monitor-footer">
+                <div class="footer-chip"><i class="fa-solid fa-database"></i> 삼중 백업: NVMe + NAS + Cold Vault</div>
+                <div class="footer-chip"><i class="fa-solid fa-certificate"></i> KINS 고시 제2024-XX호 규격</div>
+              </div>
+            </div>
+
+            <!-- Quick Action Bar -->
+            <div class="mockup-action-bar">
+              <div class="action-info">
+                <i class="fa-solid fa-file-signature text-cyan"></i>
+                <span><strong>2026년도 KINS 정기검사 방사선 사용기록 보고서</strong> 생성 준비 완료</span>
+              </div>
+              <button class="btn btn-sm btn-primary" onclick="simulateReportGen()">
+                <i class="fa-solid fa-bolt"></i> 10초 보고서 생성
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Metrics / Numbers Section -->
+  <section class="metrics-section">
+    <div class="container">
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <div class="metric-number text-gradient">99.9%</div>
+          <div class="metric-title">보고서 작성 시간 단축</div>
+          <div class="metric-desc">수동 180분 소요 → 원클릭 10초 완성</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-number text-cyan">20ms</div>
+          <div class="metric-title">초정밀 트라젝토리 수집 주기</div>
+          <div class="metric-desc">치료 중 1초당 50회 파라미터 무인 레코딩</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-number text-purple">60일 한계</div>
+          <div class="metric-title">가속기 자동 삭제 영구 극복</div>
+          <div class="metric-desc">삼중화 아카이빙으로 10년 이상 안전 보존</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-number text-emerald">100%</div>
+          <div class="metric-title">KINS 정기검사 적합성 보장</div>
+          <div class="metric-desc">원자력안전기술원 법정 서식 및 검증 체계</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Features Section -->
+  <section id="features" class="features-section">
+    <div class="container">
+      <div class="section-header text-center">
+        <div class="section-tag">CORE CAPABILITIES</div>
+        <h2 class="section-title">가속기 60일 삭제의 불안감,<br><span class="text-gradient">RadDose Pro 삼위일체 기술</span>로 해결합니다</h2>
+        <p class="section-desc">의학물리학자와 방사선사를 위한 가장 완벽한 선량 기록 및 규제 준수 아키텍처</p>
+      </div>
+
+      <div class="features-grid">
+        <!-- Feature 1 -->
+        <div class="feature-card feature-highlight">
+          <div class="feature-icon-box cyan">
+            <i class="fa-solid fa-stopwatch-20"></i>
+          </div>
+          <div class="feature-badge">핵심 특허 기술</div>
+          <h3 class="feature-name">20ms 트라젝토리 무인 수집 데몬</h3>
+          <p class="feature-text">
+            TrueBeam 및 Halcyon 콘솔에서 생성되는 고밀도 Trajectory Log를 20ms(초당 50회) 단위로 실시간 무인 캡처합니다. 
+            치료 콘솔의 60일 자동 삭제 기한에 구애받지 않고 영구 아카이빙됩니다.
+          </p>
+          <ul class="feature-list">
+            <li><i class="fa-solid fa-check"></i> 무인 백그라운드 윈도우 서비스 상시 가동</li>
+            <li><i class="fa-solid fa-check"></i> 치료기 콘솔 성능 부하 0.01% 미만 격리 설계</li>
+            <li><i class="fa-solid fa-check"></i> 네트워크 일시 단절 시 자동 재시도 및 무손실 버퍼링</li>
+          </ul>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="feature-card">
+          <div class="feature-icon-box purple">
+            <i class="fa-solid fa-microchip"></i>
+          </div>
+          <div class="feature-badge">정밀 연산 엔진</div>
+          <h3 class="feature-name">Zero-QA 선량 합성 엔진</h3>
+          <p class="feature-text">
+            치료 계획 DICOM RT Plan과 실제 조사된 20ms Trajectory Log를 1:1 합성하여, 
+            환자 치료 중 발생한 실제 갠트리 각도, MLC 립 위치 오차를 반영한 실전달 선량을 즉시 재구성합니다.
+          </p>
+          <ul class="feature-list">
+            <li><i class="fa-solid fa-check"></i> DICOM RT-Plan / Dose 정합 100% 자동화</li>
+            <li><i class="fa-solid fa-check"></i> 0.1mm 단위 MLC 립 추적 및 Gamma Index 계산</li>
+            <li><i class="fa-solid fa-check"></i> 이상 선량 발생 시 의학물리학자 즉각 알림</li>
+          </ul>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="feature-card">
+          <div class="feature-icon-box emerald">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+          <div class="feature-badge">군사급 안전성</div>
+          <h3 class="feature-name">3단계 백업 삼중화 스토리지</h3>
+          <p class="feature-text">
+            [로컬 초고속 NVMe 캐시] ➔ [병원 내부 온프레미스 NAS] ➔ [암호화 콜드 볼트]의 
+            삼중화 무손실 저장 구조로 하드웨어 고장이나 랜섬웨어 위협에도 10년 치 로그를 안전하게 지킵니다.
+          </p>
+          <ul class="feature-list">
+            <li><i class="fa-solid fa-check"></i> AES-256 군사급 양방향 암호화</li>
+            <li><i class="fa-solid fa-check"></i> 무결성 해시(SHA-256) 자동 위변조 검증</li>
+            <li><i class="fa-solid fa-check"></i> 원내 망분리 규정(PACS/EMR 독립) 완벽 부합</li>
+          </ul>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="feature-card">
+          <div class="feature-icon-box blue">
+            <i class="fa-solid fa-file-invoice"></i>
+          </div>
+          <h3 class="feature-name">10초 KINS 법정 검사 원클릭 공문 리포트</h3>
+          <p class="feature-text">
+            원자력안전기술원(KINS) 정기검사 수검을 위한 방사선 사용기록, 가속기 가동일지, 
+            선량보정 데이터를 법정 표준 양식에 맞추어 엑셀 및 PDF로 10초 만에 완벽 출력합니다.
+          </p>
+        </div>
+
+        <!-- Feature 5 -->
+        <div class="feature-card">
+          <div class="feature-icon-box orange">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+          </div>
+          <h3 class="feature-name">AI 이상 징후 사전 감지 및 장비 예지 보전</h3>
+          <p class="feature-text">
+            가속기 부품 열화, 갠트리 회전 속도 미세 지연, 빔 펄스 불안정 패턴을 AI가 조기 감지하여 
+            정기 점검 시기 및 부품 교체 시점을 사전에 알립니다.
+          </p>
+        </div>
+
+        <!-- Feature 6 -->
+        <div class="feature-card">
+          <div class="feature-icon-box teal">
+            <i class="fa-solid fa-network-wired"></i>
+          </div>
+          <h3 class="feature-name">다중 가속기 통합 관제 콘솔</h3>
+          <p class="feature-text">
+            TrueBeam, Halcyon, VitalBeam 등 병원 내 여러 치료실에 분산된 가속기들을 
+            중앙 대시보드에서 실시간 단일 뷰로 통합 모니터링하고 일괄 관리합니다.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Architecture Section -->
+  <section id="architecture" class="architecture-section">
+    <div class="container">
+      <div class="section-header text-center">
+        <div class="section-tag">SYSTEM ARCHITECTURE</div>
+        <h2 class="section-title">병원 환경에 완벽 격리된<br><span class="text-gradient">Zero-Compromise 보안 아키텍처</span></h2>
+        <p class="section-desc">의료법 및 개인정보보호법을 100% 준수하며 원내 폐쇄망 환경에서도 완벽 동작합니다.</p>
+      </div>
+
+      <div class="arch-diagram-wrapper">
+        <div class="arch-node-box">
+          <div class="arch-node-header"><i class="fa-solid fa-hospital-user text-cyan"></i> 치료실 가속기 콘솔</div>
+          <div class="arch-node-body">
+            <strong>TrueBeam / Halcyon</strong>
+            <p>20ms Trajectory Packet Stream</p>
+          </div>
+        </div>
+        <div class="arch-arrow"><i class="fa-solid fa-right-long"></i></div>
+        <div class="arch-node-box active">
+          <div class="arch-node-header"><i class="fa-solid fa-shield-halved text-emerald"></i> RadDose Core Engine</div>
+          <div class="arch-node-body">
+            <strong>실시간 파싱 & Zero-QA</strong>
+            <p>1:1 RT-Plan 대조 & 이상 감지</p>
+          </div>
+        </div>
+        <div class="arch-arrow"><i class="fa-solid fa-right-long"></i></div>
+        <div class="arch-node-box">
+          <div class="arch-node-header"><i class="fa-solid fa-file-circle-check text-purple"></i> 법정 규제 준수 산출물</div>
+          <div class="arch-node-body">
+            <strong>KINS 정기검사 보고서</strong>
+            <p>10초 PDF/Excel 자동 발행</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROI / Time Saved Calculator Section -->
+  <section id="calculator" class="calculator-section">
+    <div class="container">
+      <div class="calc-box">
+        <div class="calc-content">
+          <div class="section-tag">ROI CALCULATOR</div>
+          <h2 class="calc-title">우리 병원 KINS 검사 준비,<br><span class="text-gradient">얼마나 절감할 수 있을까요?</span></h2>
+          <p class="calc-desc">
+            가속기 대수와 연간 정기검사 횟수를 설정하고, RadDose 도입 시 절감되는 의학물리학자 업무 시간과 비용을 즉시 확인해보세요.
+          </p>
+
+          <div class="calc-controls">
+            <div class="control-group">
+              <label>운용 중인 선형가속기(LINAC) 대수: <span id="linacCountText" class="text-cyan font-bold">2대</span></label>
+              <input type="range" id="linacRange" min="1" max="10" value="2" oninput="updateCalculator()">
+            </div>
+
+            <div class="control-group">
+              <label>연간 환자 치료 건수 (대당): <span id="patientCountText" class="text-purple font-bold">500건</span></label>
+              <input type="range" id="patientRange" min="100" max="2000" step="50" value="500" oninput="updateCalculator()">
+            </div>
+          </div>
+        </div>
+
+        <div class="calc-result-card">
+          <div class="result-header">연간 절감 효과 분석</div>
+          <div class="result-metric">
+            <div class="r-label">절감되는 야근 및 수기작업 시간</div>
+            <div class="r-val text-gradient" id="timeSavedVal">360 시간 / 년</div>
+          </div>
+          <div class="result-metric">
+            <div class="r-label">인건비 및 검사 준비 기회비용 절감액</div>
+            <div class="r-val text-cyan" id="moneySavedVal">약 3,600만 원</div>
+          </div>
+          <div class="result-metric">
+            <div class="r-label">KINS 감사 시 로그 누락 리스크</div>
+            <div class="r-val text-emerald">0.00% (완전 무결)</div>
+          </div>
+          <button class="btn btn-primary btn-block btn-glow" onclick="openGoogleAuthModal()">
+            <i class="fa-brands fa-google"></i> 이 조건으로 30일 무료 체험 신청
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Plans Section -->
+  <section id="pricing" class="pricing-section">
+    <div class="container">
+      <div class="section-header text-center">
+        <div class="section-tag">TRANSPARENT PRICING</div>
+        <h2 class="section-title">규모와 환경에 최적화된<br><span class="text-gradient">합리적인 플랜</span>을 선택하세요</h2>
+        <p class="section-desc">모든 유료 플랜은 <strong>30일 무료 Pro 체험 라이선스</strong>로 즉시 시작할 수 있습니다.</p>
+      </div>
+
+      <div class="pricing-grid">
+        <!-- Free Plan -->
+        <div class="pricing-card">
+          <div class="plan-header">
+            <div class="plan-name">Free</div>
+            <div class="plan-desc">기본 로그 뷰어 & 1대 장비 수동 백업</div>
+            <div class="plan-price">
+              <span class="currency">₩</span>
+              <span class="amount">0</span>
+              <span class="period">/ 영구 무료</span>
+            </div>
+          </div>
+          <div class="plan-divider"></div>
+          <ul class="plan-features">
+            <li><i class="fa-solid fa-check"></i> 가속기 1대 연결 지원</li>
+            <li><i class="fa-solid fa-check"></i> 기본 Trajectory Log 수동 파싱</li>
+            <li><i class="fa-solid fa-check"></i> 로컬 기본 저장 (1단계)</li>
+            <li><i class="fa-solid fa-check"></i> 기본 CSV 리포트 내보내기</li>
+            <li class="disabled"><i class="fa-solid fa-xmark"></i> 20ms 실시간 무인 자동 수집</li>
+            <li class="disabled"><i class="fa-solid fa-xmark"></i> Zero-QA 선량 재구성 엔진</li>
+            <li class="disabled"><i class="fa-solid fa-xmark"></i> KINS 법정 양식 자동 생성</li>
+          </ul>
+          <button class="btn btn-outline btn-block" onclick="openGoogleAuthModal('Free')">Free 플랜 시작하기</button>
+        </div>
+
+        <!-- Plus Plan -->
+        <div class="pricing-card">
+          <div class="plan-header">
+            <div class="plan-name">Plus</div>
+            <div class="plan-desc">중소 규모 병원 및 단일 치료실 최적화</div>
+            <div class="plan-price">
+              <span class="currency">₩</span>
+              <span class="amount">19만</span>
+              <span class="period">/ 월 (가속기 2대)</span>
+            </div>
+          </div>
+          <div class="plan-divider"></div>
+          <ul class="plan-features">
+            <li><i class="fa-solid fa-check"></i> <strong>최대 2대 가속기</strong> 동시 연동</li>
+            <li><i class="fa-solid fa-check"></i> <strong>20ms 실시간 무인 수집 데몬</strong></li>
+            <li><i class="fa-solid fa-check"></i> 2단계 이중화 백업 (로컬 + NAS)</li>
+            <li><i class="fa-solid fa-check"></i> <strong>KINS 정기검사 10초 리포트 생성</strong></li>
+            <li><i class="fa-solid fa-check"></i> 이메일 및 원격 기술 지원</li>
+            <li class="disabled"><i class="fa-solid fa-xmark"></i> Zero-QA 3D 선량 합성 엔진</li>
+            <li class="disabled"><i class="fa-solid fa-xmark"></i> AI 이상 징후 예지 보전</li>
+          </ul>
+          <button class="btn btn-outline btn-block" onclick="openGoogleAuthModal('Plus')">Plus 시작하기 (30일 무료)</button>
+        </div>
+
+        <!-- Pro Plan (Popular / Featured) -->
+        <div class="pricing-card featured">
+          <div class="featured-ribbon">가장 인기 • 30일 무료</div>
+          <div class="plan-header">
+            <div class="plan-name">Pro <span class="badge-pro">FULL SUITE</span></div>
+            <div class="plan-desc">상급종합병원 및 정밀 QA가 필수인 기관</div>
+            <div class="plan-price">
+              <span class="currency">₩</span>
+              <span class="amount">59만</span>
+              <span class="period">/ 월 (무제한 가속기)</span>
+            </div>
+          </div>
+          <div class="plan-divider"></div>
+          <ul class="plan-features">
+            <li><i class="fa-solid fa-check text-cyan"></i> <strong>무제한 가속기</strong> 연결 및 통합 관제</li>
+            <li><i class="fa-solid fa-check text-cyan"></i> <strong>20ms 초고속 무인 수집 데몬</strong></li>
+            <li><i class="fa-solid fa-check text-cyan"></i> <strong>Zero-QA 선량 합성 및 감마 분석</strong></li>
+            <li><i class="fa-solid fa-check text-cyan"></i> <strong>3단계 백업 삼중화 (NVMe+NAS+Cloud)</strong></li>
+            <li><i class="fa-solid fa-check text-cyan"></i> <strong>KINS 정기검사 공문 100% 자동 생성</strong></li>
+            <li><i class="fa-solid fa-check text-cyan"></i> AI 이상 징후 조기 감지 & 실시간 알림</li>
+            <li><i class="fa-solid fa-check text-cyan"></i> <strong>24/7 전담 의학물리 엔지니어 기술 지원</strong></li>
+          </ul>
+          <button class="btn btn-primary btn-block btn-glow" onclick="openGoogleAuthModal('Pro')">
+            <i class="fa-brands fa-google"></i> 30일 무료 Pro 라이선스 발급
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq" class="faq-section">
+    <div class="container">
+      <div class="section-header text-center">
+        <div class="section-tag">FREQUENTLY ASKED QUESTIONS</div>
+        <h2 class="section-title">자주 묻는 질문</h2>
+        <p class="section-desc">RadDose 도입 및 운영에 관한 의학물리학자분들의 주요 질문들입니다.</p>
+      </div>
+
+      <div class="faq-accordion">
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-question">
+            <span>Q. 병원 방사선종양학과 내부 전산망이 외부와 차단된 '폐쇄망(망분리)' 환경입니다. 작동 가능한가요?</span>
+            <i class="fa-solid fa-chevron-down faq-arrow"></i>
+          </div>
+          <div class="faq-answer">
+            <p><strong>네, 완벽하게 지원합니다.</strong> RadDose Pro는 인터넷 연결이 전혀 없는 완전 폐쇄망(Air-Gapped) 온프레미스 환경에서도 모든 기능(20ms 트라젝토리 수집, Zero-QA 선량 합성, KINS 리포트 생성, 로컬/NAS 삼중 백업)이 100% 자립형으로 작동합니다. 라이선스 역시 오프라인 서명 키 방식을 제공합니다.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-question">
+            <span>Q. 가속기 콘솔의 60일 자동 삭제 기한이 지난 과거 데이터도 복구할 수 있나요?</span>
+            <i class="fa-solid fa-chevron-down faq-arrow"></i>
+          </div>
+          <div class="faq-answer">
+            <p>RadDose 데몬 설치 이후 시점부터는 모든 20ms 트라젝토리 및 치료 로그가 삼중 스토리지에 무인 영구 보관되어 60일 삭제의 영향을 전혀 받지 않습니다. 설치 이전에 콘솔에서 이미 완전 파기된 파일은 물리적 복구가 불가능하므로, <strong>KINS 정기검사 수검 전 최대한 빠른 설치를 권장합니다.</strong></p>
+          </div>
+        </div>
+
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-question">
+            <span>Q. KINS(한국원자력안전기술원) 정기검사 제출 시 공식 인정되는 서식인가요?</span>
+            <i class="fa-solid fa-chevron-down faq-arrow"></i>
+          </div>
+          <div class="faq-answer">
+            <p>네, 원자력안전법 제53조 및 KINS 고시 기준 법정 검사 양식 규격을 100% 준수합니다. 기기별 빔 출력 선량, 일일/월간 점검 기록, 환자별 실제 조사 선량 요약표가 공문 규격의 Excel 및 위변조 방지 PDF로 생성되어 감사 시 즉시 제출하실 수 있습니다.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-question">
+            <span>Q. 30일 무료 Pro 체험 라이선스는 신용카드 등록 없이 즉시 사용 가능한가요?</span>
+            <i class="fa-solid fa-chevron-down faq-arrow"></i>
+          </div>
+          <div class="faq-answer">
+            <p><strong>네, 카드 등록이나 비용 결제 없이 즉시 발급됩니다.</strong> Google 계정 간편 연동 또는 병원 정보 입력만으로 30일간 Pro 플랜의 모든 기능(무제한 가속기, Zero-QA, KINS 보고서 생성)을 제한 없이 검증하실 수 있습니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-banner-section">
+    <div class="container">
+      <div class="cta-banner">
+        <div class="cta-badge"><i class="fa-solid fa-sparkles"></i> 1초 즉시 발급</div>
+        <h2 class="cta-title">지금 바로 30일 무료 Pro 라이선스를 발급받으세요</h2>
+        <p class="cta-desc">
+          병원 가속기 60일 로그 삭제 불안을 해소하고, KINS 검사 보고서를 10초 만에 완성하는 압도적 생산성을 경험하세요.
+        </p>
+        <div class="cta-buttons">
+          <button class="btn btn-hero-primary btn-large" onclick="openGoogleAuthModal('Pro')">
+            <div class="google-btn-icon">
+              <svg viewBox="0 0 24 24" width="22" height="22">
+                <path fill="#EA4335" d="M12 5c1.6 0 3 .6 4.1 1.6l3.1-3.1C17.3 1.8 14.8 1 12 1 7.4 1 3.5 3.6 1.6 7.3l3.7 2.9C6.2 7.3 8.9 5 12 5z"/>
+                <path fill="#4285F4" d="M23.5 12.3c0-.8-.1-1.6-.2-2.3H12v4.5h6.5c-.3 1.5-1.1 2.8-2.4 3.7l3.7 2.9c2.2-2 3.7-5 3.7-8.8z"/>
+                <path fill="#FBBC05" d="M5.3 14.8c-.2-.7-.4-1.5-.4-2.3s.2-1.6.4-2.3L1.6 7.3C.6 9.3 0 11.6 0 14s.6 4.7 1.6 6.7l3.7-2.9z"/>
+                <path fill="#34A853" d="M12 23c3.2 0 6-1.1 8-3l-3.7-2.9c-1.1.7-2.5 1.2-4.3 1.2-3.1 0-5.8-2.1-6.7-5L1.6 16.2C3.5 20.4 7.4 23 12 23z"/>
+              </svg>
+            </div>
+            <span>Google 계정으로 1초 가입 & Pro 키 발급</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-brand">
+        <div class="brand-logo">
+          <div class="logo-icon"><i class="fa-solid fa-atom"></i></div>
+          <span class="brand-name">RadDose <span class="badge-pro">PRO</span></span>
+        </div>
+        <p class="footer-tagline">의학물리학 및 방사선종양학과를 위한 선량 수집 & KINS 법정 검사 자동화 솔루션</p>
+        <div class="footer-socials">
+          <a href="#"><i class="fa-brands fa-github"></i></a>
+          <a href="#"><i class="fa-solid fa-envelope"></i></a>
+          <a href="#"><i class="fa-solid fa-phone"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-links-grid">
+        <div class="footer-col">
+          <h4>제품 및 기능</h4>
+          <a href="#features">20ms 트라젝토리 수집</a>
+          <a href="#features">Zero-QA 선량 합성</a>
+          <a href="#features">3단계 백업 삼중화</a>
+          <a href="#features">KINS 법정 보고서</a>
+        </div>
+        <div class="footer-col">
+          <h4>요금 및 지원</h4>
+          <a href="#pricing">요금제 비교</a>
+          <a href="#calculator">절감액 계산기</a>
+          <a href="#faq">자주 묻는 질문</a>
+          <a href="mailto:support@raddose.io">엔터프라이즈 기술지원</a>
+        </div>
+        <div class="footer-col">
+          <h4>인증 및 보안</h4>
+          <a href="#">KINS 고시 규격 준수</a>
+          <a href="#">의료법 / 개인정보보호법</a>
+          <a href="#">AES-256 보안 백서</a>
+          <a href="#">오프라인 망분리 인증</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container bottom-flex">
+        <p>© 2026 RadDose Inc. All rights reserved. Medical Radiation Dose & KINS Compliance Suite.</p>
+        <p class="text-dim">상용화 패키징 v3.0 (Build 2026.09)</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- AUTH / LICENSE ISSUANCE MODAL -->
+  <div id="authModal" class="modal-overlay">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeModal('authModal')"><i class="fa-solid fa-xmark"></i></button>
+
+      <!-- STEP 1: Google One-Click Auth Screen -->
+      <div id="modalStep1" class="modal-step active">
+        <div class="modal-header text-center">
+          <div class="modal-badge-pro"><i class="fa-solid fa-crown"></i> 30일 무료 Pro 체험 플랜</div>
+          <h3 class="modal-title">RadDose Pro 1초 시작하기</h3>
+          <p class="modal-subtitle">구글 계정 연동으로 30일 무료 Pro 라이선스가 즉시 발급됩니다.</p>
+        </div>
+
+        <div class="google-auth-box">
+          <button class="btn btn-google-direct" onclick="handleGoogleSignIn()">
+            <div class="google-icon-wrapper">
+              <svg viewBox="0 0 24 24" width="22" height="22">
+                <path fill="#EA4335" d="M12 5c1.6 0 3 .6 4.1 1.6l3.1-3.1C17.3 1.8 14.8 1 12 1 7.4 1 3.5 3.6 1.6 7.3l3.7 2.9C6.2 7.3 8.9 5 12 5z"/>
+                <path fill="#4285F4" d="M23.5 12.3c0-.8-.1-1.6-.2-2.3H12v4.5h6.5c-.3 1.5-1.1 2.8-2.4 3.7l3.7 2.9c2.2-2 3.7-5 3.7-8.8z"/>
+                <path fill="#FBBC05" d="M5.3 14.8c-.2-.7-.4-1.5-.4-2.3s.2-1.6.4-2.3L1.6 7.3C.6 9.3 0 11.6 0 14s.6 4.7 1.6 6.7l3.7-2.9z"/>
+                <path fill="#34A853" d="M12 23c3.2 0 6-1.1 8-3l-3.7-2.9c-1.1.7-2.5 1.2-4.3 1.2-3.1 0-5.8-2.1-6.7-5L1.6 16.2C3.5 20.4 7.4 23 12 23z"/>
+              </svg>
+            </div>
+            <span>Google 계정으로 계속하기</span>
+          </button>
+        </div>
+
+        <div class="modal-divider"><span>또는 병원 이메일로 직접 등록</span></div>
+
+        <form id="directRegForm" onsubmit="handleDirectSubmit(event)">
+          <div class="form-group">
+            <label><i class="fa-solid fa-hospital"></i> 병원 / 기관명</label>
+            <input type="text" id="regHospital" class="form-input" placeholder="예: 서울아산병원, 삼성서울병원" required>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label><i class="fa-solid fa-user"></i> 담당자 성명</label>
+              <input type="text" id="regName" class="form-input" placeholder="홍길동 의학물리학자" required>
+            </div>
+            <div class="form-group">
+              <label><i class="fa-solid fa-envelope"></i> 이메일</label>
+              <input type="email" id="regEmail" class="form-input" placeholder="physicist@hospital.kr" required>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block btn-glow">
+            <i class="fa-solid fa-key"></i> 30일 무료 Pro 라이선스 즉시 발급받기
+          </button>
+        </form>
+
+        <div class="modal-footer-note">
+          <i class="fa-solid fa-shield-check text-emerald"></i> 신용카드 등록 불필요 • 30일 후 자동 유료 전환 없음
+        </div>
+      </div>
+
+      <!-- STEP 2: Loading Animation Screen -->
+      <div id="modalStep2" class="modal-step">
+        <div class="loading-container text-center">
+          <div class="loading-spinner"></div>
+          <h4 class="loading-title">Google 인증 확인 및 Pro 라이선스 생성 중...</h4>
+          <p class="loading-desc">병원 전용 고유 암호화 시리얼 키(`RD2026-PRO-...`)를 발급하고 있습니다.</p>
+        </div>
+      </div>
+
+      <!-- STEP 3: License Success Celebration Card -->
+      <div id="modalStep3" class="modal-step">
+        <div class="success-header text-center">
+          <div class="celebrate-badge">🎉 발급 완료!</div>
+          <h3 class="success-title">30일 무료 Pro 라이선스가 발급되었습니다!</h3>
+          <p class="success-subtitle"><span id="issuedHospitalName" class="text-cyan font-bold">서울대병원</span> <span id="issuedUserName">홍길동</span> 님, 환영합니다.</p>
+        </div>
+
+        <!-- License Display Box -->
+        <div class="license-box">
+          <div class="license-header">
+            <div class="license-badge"><i class="fa-solid fa-certificate"></i> RADDOSE PRO 30-DAY TRIAL</div>
+            <div class="license-expiry" id="issuedExpiryText">만료일: 2026-10-02 (30일 남음)</div>
+          </div>
+
+          <div class="license-key-wrapper">
+            <div class="license-key-display" id="issuedSerialKey">RD2026-PRO-98FA-4AE0</div>
+            <button class="btn btn-copy" onclick="copyLicenseKey()">
+              <i class="fa-solid fa-copy" id="copyIcon"></i> <span id="copyBtnText">키 복사</span>
+            </button>
+          </div>
+
+          <div class="license-specs-grid">
+            <div class="spec-item">
+              <span class="spec-k">적용 플랜</span>
+              <span class="spec-v text-cyan">Pro Full Suite (무제한)</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-k">20ms 트라젝토리</span>
+              <span class="spec-v text-emerald">무제한 무인 수집</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-k">Zero-QA 합성</span>
+              <span class="spec-v text-emerald">완전 활성화</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-k">KINS 리포트</span>
+              <span class="spec-v text-emerald">10초 원클릭 무제한</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Download & Next Steps Actions -->
+        <div class="success-actions">
+          <button class="btn btn-download-huge" onclick="triggerSetupDownload()">
+            <div class="dl-icon"><i class="fa-solid fa-download"></i></div>
+            <div class="dl-text">
+              <span class="dl-main">RadDose Setup v3.0 다운로드</span>
+              <span class="dl-sub">Windows 10/11 / Server 2022 호환 (.exe / 85MB)</span>
+            </div>
+            <div class="dl-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+          </button>
+
+          <div class="action-sub-links">
+            <button class="btn btn-outline btn-sm" onclick="downloadLicenseFile()">
+              <i class="fa-solid fa-file-shield"></i> 라이선스 파일 (.key) 다운로드
+            </button>
+            <button class="btn btn-outline btn-sm" onclick="resetAndCloseModal()">
+              <i class="fa-solid fa-check"></i> 닫기
+            </button>
+          </div>
+        </div>
+
+        <div class="install-guide-box">
+          <div class="guide-title"><i class="fa-solid fa-circle-info text-cyan"></i> 빠른 설치 안내:</div>
+          <ol class="guide-list">
+            <li>다운로드한 <strong>RadDose_Setup_v3.0.exe</strong>를 실행합니다.</li>
+            <li>설치 마법사 라이선스 등록 창에 위 시리얼 키를 붙여넣기합니다.</li>
+            <li>가속기 IP(TrueBeam/Halcyon)를 입력하면 20ms 무인 수집이 즉시 시작됩니다!</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toastContainer" class="toast-container"></div>
+
+  <script src="auth_portal.js"></script>
+</body>
+</html>
