@@ -286,7 +286,7 @@ function openMyPageModal() {
       userName: '김정배',
       userEmail: 'rt1004@nhimc.or.kr',
       serialKey: 'RD2026-PRO-TEST-9999',
-      expiresAt: '2026-10-02 (30일 무료 체험 D-30)'
+      expiresAt: '2026-10-02 '
     };
   }
 
@@ -294,7 +294,7 @@ function openMyPageModal() {
   document.getElementById('myUserName').innerText = session.userName;
   document.getElementById('myUserEmail').innerText = session.userEmail;
   document.getElementById('mySerialKey').innerText = session.serialKey;
-  document.getElementById('myExpiryText').innerText = session.expiresAt ? `만료일: ${session.expiresAt} (30일 무료 체험 D-30)` : '30일 무료 체험';
+  document.getElementById('myExpiryText').innerText = session.expiresAt ? `만료일: 2026-10-02 (30일 무료 체험 • D-30) ` : '30일 무료 체험';
   
   if (document.getElementById('orderDepositor')) {
     document.getElementById('orderDepositor').value = `${session.userName}(${session.hospitalName})`;
@@ -312,13 +312,29 @@ function closeMyPageModal() {
 }
 
 function switchMyPageTab(tabName) {
-  document.querySelectorAll('.mypage-tab-btn').forEach(btn => btn.classList.remove('active'));
-  document.querySelectorAll('.mypage-tab-content').forEach(c => c.style.display = 'none');
-
-  const activeBtn = document.getElementById(`tabBtn_${tabName}`);
-  const activeContent = document.getElementById(`tabContent_${tabName}`);
-  if (activeBtn) activeBtn.classList.add('active');
-  if (activeContent) activeContent.style.display = 'block';
+  const tabs = ['license', 'billing', 'vault'];
+  tabs.forEach(t => {
+    const btn = document.getElementById(`tabBtn_${t}`);
+    const content = document.getElementById(`tabContent_${t}`);
+    if (btn) {
+      if (t === tabName) {
+        btn.classList.add('active');
+        btn.style.background = 'rgba(56, 189, 248, 0.15)';
+        btn.style.color = '#38bdf8';
+        btn.style.borderColor = 'rgba(56, 189, 248, 0.6)';
+        btn.style.boxShadow = '0 0 12px rgba(56, 189, 248, 0.3)';
+      } else {
+        btn.classList.remove('active');
+        btn.style.background = 'rgba(255, 255, 255, 0.05)';
+        btn.style.color = '#94a3b8';
+        btn.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+        btn.style.boxShadow = 'none';
+      }
+    }
+    if (content) {
+      content.style.display = (t === tabName) ? 'block' : 'none';
+    }
+  });
 }
 
 /* ==========================================================================
