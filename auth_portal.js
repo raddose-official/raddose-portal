@@ -420,8 +420,7 @@ function downloadLicenseFile() {
     `ISSUED_AT=${new Date().toISOString()}`,
     `EXPIRES_AT=${new Date(Date.now() + 30*86400000).toISOString()}`,
     `SIGNATURE_SHA256=VALID_E2EE_VERIFIED`
-  ].join('
-');
+  ].join('\n');
 
   const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
   const url = URL.createObjectURL(blob);
