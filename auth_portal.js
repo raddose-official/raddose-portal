@@ -113,21 +113,20 @@ function showStep(stepNum) {
    Google 1-Click Simulation & License Generation
    ========================================================================== */
 function handleGoogleSignIn() {
-  // Step 2: Show loading spinner
+  // 사용자가 폼에 입력해 둔 값이 있으면 최우선 적용
+  const typedHosp = (document.getElementById('regHospital') && document.getElementById('regHospital').value.trim()) || '';
+  const typedName = (document.getElementById('regName') && document.getElementById('regName').value.trim()) || '';
+  const typedEmail = (document.getElementById('regEmail') && document.getElementById('regEmail').value.trim()) || '';
+
   showStep(2);
 
-  // Random Google Mock Profile
-  const mockProfiles = [
-    { name: '김민수', email: 'minsu.kim@gmail.com', hospital: '서울아산병원 방사선종양학과' },
-    { name: '이지훈', email: 'jh.lee.physics@gmail.com', hospital: '삼성서울병원 의학물리실' },
-    { name: '박서연', email: 'sy.park@gmail.com', hospital: '서울대학교병원 암병원' },
-    { name: '최현우', email: 'hw.choi.rad@gmail.com', hospital: '연세암병원 방사선치료센터' }
-  ];
-  const profile = mockProfiles[Math.floor(Math.random() * mockProfiles.length)];
+  const finalHosp = typedHosp || '신규 등록 병원 방사선종양학과';
+  const finalName = typedName || '의학물리학자';
+  const finalEmail = typedEmail || 'physicist@hospital.kr';
 
   setTimeout(() => {
-    issueTrialLicense(profile.hospital, profile.name, profile.email, 'Google OAuth 2.0');
-  }, 1400);
+    issueTrialLicense(finalHosp, finalName, finalEmail, 'Google OAuth 2.0');
+  }, 1200);
 }
 
 function handleDirectSubmit(event) {
